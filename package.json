@@ -27,13 +27,13 @@
         "piCommit.model": {
           "type": "string",
           "default": "",
-          "description": "Model passed to `pi --model` (e.g. anthropic/claude-sonnet-5-5). Empty uses pi's default."
+          "markdownDescription": "**Required.** Model passed to `pi --model` (e.g. `anthropic/claude-sonnet-5-5`)."
         },
         "piCommit.prompt": {
           "type": "string",
           "editPresentation": "multilineText",
-          "default": "Write a Conventional Commits message for the git diff given on stdin. Output only the commit message, no code fences, no explanation.",
-          "description": "Prompt sent to pi. The git diff is sent on stdin."
+          "default": "Write a Conventional Commits message.",
+          "description": "Instructions for the commit message style. The git diff and the output rules are added automatically."
         }
       }
     }
