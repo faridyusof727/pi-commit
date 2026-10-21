@@ -4,11 +4,15 @@
   "description": "Generate git commit messages with the pi agent CLI",
   "version": "0.0.1",
   "publisher": "local",
+  "license": "MIT",
   "repository": { "type": "git", "url": "https://github.com/faridyusof727/pi-commit.git" },
+  "categories": ["SCM Providers", "AI"],
+  "keywords": ["git", "commit", "commit message", "pi", "ai"],
   "engines": { "vscode": "^1.80.0" },
   "main": "./extension.js",
   "scripts": {
-    "package": "npx @vscode/vsce@4.0.0 package --skip-license"
+    "package": "npx @vscode/vsce@4.0.0 package",
+    "publish": "npx @vscode/vsce@4.0.0 publish"
   },
   "extensionDependencies": ["vscode.git"],
   "contributes": {
