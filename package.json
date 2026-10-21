@@ -1,0 +1,41 @@
+{
+  "name": "pi-commit",
+  "displayName": "Pi Commit",
+  "description": "Generate git commit messages with the pi agent CLI",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": { "vscode": "^1.80.0" },
+  "main": "./extension.js",
+  "extensionDependencies": ["vscode.git"],
+  "contributes": {
+    "commands": [
+      { "command": "piCommit.generate", "title": "Generate Commit Message (pi)", "icon": "$(sparkle)" }
+    ],
+    "menus": {
+      "scm/title": [
+        { "command": "piCommit.generate", "when": "scmProvider == git", "group": "navigation" }
+      ]
+    },
+    "configuration": {
+      "title": "Pi Commit",
+      "properties": {
+        "piCommit.path": {
+          "type": "string",
+          "default": "pi",
+          "description": "Path to the pi executable. Set an absolute path if VS Code cannot find pi on PATH."
+        },
+        "piCommit.model": {
+          "type": "string",
+          "default": "",
+          "description": "Model passed to `pi --model` (e.g. anthropic/claude-sonnet-5-5). Empty uses pi's default."
+        },
+        "piCommit.prompt": {
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": "Write a Conventional Commits message for the git diff given on stdin. Output only the commit message, no code fences, no explanation.",
+          "description": "Prompt sent to pi. The git diff is sent on stdin."
+        }
+      }
+    }
+  }
+}
